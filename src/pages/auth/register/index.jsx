@@ -37,18 +37,22 @@ const UserRegistration = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await API.private.onboarding_userRegister({
+      const payload = {
         username: data.username,
         password: data.password,
         role: data.role.value,
-      });
+      };
 
-      Notification.success("Registration successful!");
-      console.log("✅ Response:", response);
-      reset();
+      const response = await API.private.onboarding_userRegister(payload);
+      if (response.data.message === "Welcome onboard Eran Neww (customer)") {
+        Notification.success("Registration successful!");
+        reset();
+      } else {
+        Notification.error("Login failed!");
+      }
     } catch (error) {
-      console.error(error);
       Notification.error("Registration failed!");
+      throw new error();
     }
   };
 
