@@ -1,8 +1,9 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-const UserRegistration = lazy(() => import("../pages/auth/register"));
 const Dashboard = lazy(() => import("@/pages/dashboard"));
+const UserRegistration = lazy(() => import("../pages/auth/register"));
+const UserLogin = lazy(() => import("../pages/auth/login"));
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
       //   { path: "*", element: <NotFound /> },
       { index: true, element: <Dashboard /> },
       { path: "register", element: <UserRegistration /> },
+      { path: "login", element: <UserLogin /> },
     ],
   },
 ]);
