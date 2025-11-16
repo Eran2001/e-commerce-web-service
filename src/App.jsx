@@ -4,10 +4,12 @@ import { ToastContainer } from "react-toastify";
 
 import { router } from "./routes/index";
 
+import Loading from "@/components/ui/Loading";
+
 function App() {
   return (
     <>
-      <Suspense fallback={<div className="text-center">Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <RouterProvider router={router} />
       </Suspense>
 
