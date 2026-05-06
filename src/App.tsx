@@ -3,8 +3,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { AuthProvider } from './context/AuthContext';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
+import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
 import Home from './pages/Home';
 import ProductListing from './pages/ProductListing';
 import ProductDetail from './pages/ProductDetail';
@@ -15,6 +15,7 @@ import Auth from './pages/Auth';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
                   </Routes>
                 </main>
                 <Footer />
+                <Toaster position="top-right" richColors />
               </div>
             </WishlistProvider>
           </CartProvider>
